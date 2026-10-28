@@ -1,0 +1,114 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    ViewBag.Title = "Product Inventory";
+}
+
+<link href="@Url.Content("~/Content/Product.css")" rel="stylesheet" />
+
+<div class="inventory-page">
+
+    <div class="page-header">
+        <h2>Product Inventory</h2>
+        <p>Manage your products, stock quantities and prices.</p>
+    </div>
+
+    <div class="inventory-card">
+
+        <div class="inventory-top">
+            <h3>All Products</h3>
+
+            @Html.ActionLink(
+                "+ Add Product",
+                "Create",
+                "Product",
+                null,
+                new { @class = "btn btn-add" }
+            )
+        </div>
+
+        <div class="table-responsive">
+            <table class="product-table">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @if (Model == null || Model.Rows.Count == 0)
+                    {
+                        <tr>
+                            <td colspan="5" class="empty-message">
+                                No products found. Add your first product!
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (DataRow row in Model.Rows)
+                        {
+                            <tr>
+                                <td>
+                                    @row["ProductId"]
+                                </td>
+
+                                <td class="product-name">
+                                    @row["ProductName"]
+                                </td>
+
+                                <td>
+                                    @row["Quantity"]
+                                </td>
+
+                                <td>
+                                    ₹@Convert.ToDecimal(row["Price"]).ToString("0.00")
+                                </td>
+
+                                <td>
+                                    <div class="action-buttons">
+
+                                        @Html.ActionLink(
+                                            "Edit",
+                                            "Edit",
+                                            new { id = row["ProductId"] },
+                                            new { @class = "btn btn-edit" }
+                                        )
+
+                                        @using (Html.BeginForm(
+                                            "Delete",
+                                            "Product",
+                                            new { id = row["ProductId"] },
+                                            FormMethod.Post))
+                                        {
+                                            @Html.AntiForgeryToken()
+
+                                            <button type="submit"
+                                                    class="btn btn-delete"
+                                                    onclick="return confirm('Are you sure you want to delete this product?');">
+                                                Delete
+                                            </button>
+                                        }
+
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+
+            </table>
+        </div>
+
+        <div class="inventory-footer">
+            Inventory Management System
+        </div>
+
+    </div>
+</div>

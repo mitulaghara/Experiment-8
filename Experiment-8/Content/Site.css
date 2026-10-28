@@ -1,0 +1,145 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.inventory-page {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 15px;
+}
+
+.page-header {
+    margin-bottom: 20px;
+}
+
+    .page-header h2 {
+        color: #234567;
+    }
+
+    .page-header p {
+        color: #666;
+    }
+
+.inventory-card {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.inventory-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+    .product-table th {
+        background-color: #e8eef5;
+        color: #234567;
+    }
+
+    .product-table th,
+    .product-table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .product-table tr:hover {
+        background-color: #f9f9f9;
+    }
+
+.empty-message {
+    text-align: center;
+    color: #777;
+}
+
+.btn {
+    display: inline-block;
+    padding: 7px 12px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.btn-add {
+    background-color: #2878c7;
+    color: white;
+}
+
+.btn-edit {
+    background-color: #f0c14b;
+    color: #333;
+}
+
+.btn-delete {
+    background-color: #d9534f;
+    color: white;
+}
+
+.btn-save {
+    background-color: #27864b;
+    color: white;
+}
+
+.btn-cancel {
+    background-color: #777;
+    color: white;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+    .action-buttons form {
+        margin: 0;
+    }
+
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: bold;
+    }
+
+.form-control {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.field-validation-error {
+    color: #d9534f;
+    font-size: 13px;
+}
+
+.inventory-footer {
+    margin-top: 10px;
+    color: #777;
+}
